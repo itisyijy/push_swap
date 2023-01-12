@@ -6,11 +6,12 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:29:17 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 21:44:38 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:13:26 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "deque.h"
+#include "ft_printf.h"
 #include "inst_rules.h"
 
 void	rotate(t_deque *deque)
@@ -30,6 +31,7 @@ void	rotate(t_deque *deque)
 
 void	rotaterotate(t_deque *a, t_deque *b)
 {
+	ft_printf("rr\n");
 	rotate(a);
 	rotate(b);
 }
@@ -51,6 +53,7 @@ void	re_rotate(t_deque *deque)
 
 void	re_rotaterotate(t_deque *a, t_deque *b)
 {
+	ft_printf("rrr\n");
 	re_rotate(a);
 	re_rotate(b);
 }

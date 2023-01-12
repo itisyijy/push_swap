@@ -6,12 +6,13 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:21:04 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 21:37:12 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:32:59 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "deque.h"
+#include "args.h"
 #include "bool.h"
 
 t_deque	*new_deque(void)

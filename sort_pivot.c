@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:45:44 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/12 12:58:14 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:35:58 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_node	*find_max(t_deque *deque)
 	return (max);
 }
 
-t_node	*find_onethird(t_deque *deque)
+int	find_onethird(t_deque *deque)
 {
 	int	min;
 	int	max;
@@ -55,7 +55,7 @@ t_node	*find_onethird(t_deque *deque)
 	return (min + ((max - min) / 3));
 }
 
-t_node	*find_twothird(t_deque *deque)
+int	find_twothird(t_deque *deque)
 {
 	int	min;
 	int	max;
