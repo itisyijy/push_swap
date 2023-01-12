@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:21:04 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 19:12:12 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:37:12 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,18 @@ void	clear_deque(t_deque *deque)
 	}
 	free(deque);
 	deque = NULL;
+}
+
+int	init_deque(t_deque *deque, int argc, char *argv[])
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (add_node(deque, ps_atoi(argv[i])) == FALSE)
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
 }

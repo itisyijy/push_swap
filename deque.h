@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:21:02 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 17:13:54 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:37:24 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_deque	*new_deque(void);
 t_node	*new_node(int integer);
 int		add_node(t_deque *deque, int integer);
 void	clear_deque(t_deque *deque);
+int		init_deque(t_deque *deque, int argc, char *argv[]);
 
 #endif

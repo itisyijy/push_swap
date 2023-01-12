@@ -6,16 +6,16 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:36:56 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 19:15:23 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:45:43 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "bool.h"
 #include "args.h"
-#include "deque.h"
+#include "bool.h"
 #include "ft_printf.h"
+#include "inst_rules.h"
 
 int	error(void)
 {
@@ -23,40 +23,9 @@ int	error(void)
 	return (0);
 }
 
-int	check_args(int argc, char *argv[])
-{
-	int	i;
-
-	i = 1;
-	if (check_overlap(argc, argv) == TRUE)
-		return (FALSE);
-	while (i < argc)
-	{
-		if (check_digit(argv[i]) == FALSE)
-			return (FALSE);
-		if (check_range(ps_atoi(argv[i])) == FALSE)
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
-}
-
-int	init_deque(t_deque *deque, int argc, char *argv[])
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (add_node(deque, ps_atoi(argv[i])) == FALSE)
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
-}
-
 int	main(int argc, char *argv[])
 {
+	t_node	*tmp;
 	t_deque	*a;
 	t_deque	*b;
 

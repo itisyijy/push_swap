@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:03:19 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 17:00:51 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:42:23 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,22 @@ long	ps_atoi(char *str)
 	return (result * sign);
 }
 
-int	check_range(long integer)
+int	check_args(int argc, char *argv[])
 {
-	if (integer > INTMAX || integer < INTMIN)
+	int		i;
+	long	tmp;
+
+	i = 1;
+	if (check_overlap(argc, argv) == TRUE)
 		return (FALSE);
+	while (i < argc)
+	{
+		if (check_digit(argv[i]) == FALSE)
+			return (FALSE);
+		tmp = ps_atoi(argv[i]);
+		if (tmp > INTMAX || tmp < INTMIN)
+			return (FALSE);
+		i++;
+	}
 	return (TRUE);
 }
