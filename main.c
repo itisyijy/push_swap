@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:36:56 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/12 17:12:13 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:31:12 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,7 @@ int	main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		if (check_args(argc, argv) == FALSE)
-			return (error());
-		a = new_deque();
-		b = new_deque();
-		if (!a || !b)
-			return (error());
-		if (init_deque(a, argc, argv) == TRUE)
-		{
-			if (already_sorted(a) == FALSE)
-			{
-				partition(a, b);
-				print_stack(a, b);
-			}
-			else
-				ft_printf("Already sorted.\n");
-		}
-		else
-			return (error());
-		clear_deque(a);
-		clear_deque(b);
+		
 	}
 	return (0);
 }

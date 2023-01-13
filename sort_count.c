@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   sort_count.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 12:36:56 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/13 17:07:16 by jeongyle         ###   ########.fr       */
+/*   Created: 2023/01/13 16:58:14 by jeongyle          #+#    #+#             */
+/*   Updated: 2023/01/13 18:30:46 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_H
-# define SORT_H
+#include "sort.h"
+#include "deque.h"
 
-# include "deque.h"
+int	make_head(t_deque *deque, int integer)
+{
 
-t_node	*find_min(t_deque *deque);
-t_node	*find_max(t_deque *deque);
-int		find_onethird(t_deque *deque);
-int		find_twothird(t_deque *deque);
+}
 
-int		check_partition(t_deque *a, int twothird);
-void	partition(t_deque *a, t_deque *b);
+int	make_sort(t_deque *deque, int integer)
+{
 
-int		already_sorted(t_deque *deque);
+}
 
-int		count_inst(t_deque *a, t_deque *b, int integer);
-
-#endif
+int	count_inst(t_deque *a, t_deque *b, int integer)
+{
+	
+}
