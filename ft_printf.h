@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:28:54 by jeongyle          #+#    #+#             */
-/*   Updated: 2022/12/30 15:44:54 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/16 16:44:23 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_printunint(va_list ap);
 
 int		ft_printhexarr(char *arr, int size);
 void	ft_hexint(unsigned int num, int index, char *arr, char x);
-void	ft_hexlong(size_t address, int index, char *arr);
+void	ft_hexlong(int address, int index, char *arr);
 int		ft_printhexint(va_list ap, char x);
 int		ft_printaddress(va_list ap);
 

@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:25:31 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/13 18:53:32 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:17:52 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,49 @@
 #include "args.h"
 #include "bool.h"
 
-size_t	ft_wordcount(char *s, char c)
+int	count_word(char *str)
 {
-	size_t	i;
-	size_t	flag;
-	size_t	count;
+	int	i;
+	int	flag;
+	int	count;
 
-	if (!s)
-		return (0);
-	count = 0;
 	i = 0;
 	flag = 0;
-	while (s[i] != '\0')
+	count = 0;
+	while (str[i] != '\0')
 	{
-		if (s[i] != c && flag == 0)
+		if (str[i] >= '0' && str[i] <= '9' && flag == 0)
 		{
-			flag = 1;
 			count++;
+			flag = 1;
 		}
-		else if (s[i] == c)
+		else if (str[i] < '0' || str[i] > '9')
 			flag = 0;
 		i++;
 	}
 	return (count);
 }
 
-size_t	ft_wordlen(char *s, char c)
+int	word_len(char *str)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
-	while (s[len] != '\0' && s[len] != c)
+	while (str[len] != '\0' && str[len] >= '0' && str[len] <= '9')
 		len++;
 	return (len);
 }
 
-char	*ft_wordfind(char *s, char c)
+char	*find_word(char *str)
 {
-	size_t	i;
-
-	i = 0;
-	while (*s != '\0')
-	{
-		if (*s != c)
-			return (s);
-		s++;
-	}
-	return (s);
+	while (*str != '\0' && (*str < '0' || *str > '9'))
+		str++;
+	return (str);
 }
 
-char	*ft_wordassign(char *dst, char *src, size_t len)
+char	*assign_word(char *dst, char *src, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -77,30 +68,29 @@ char	*ft_wordassign(char *dst, char *src, size_t len)
 	return (src + i);
 }
 
-char	**ft_split(char const *s, char c)
+char	**split_word(char *str)
 {
-	size_t	i;
-	size_t	wordcount;
-	char	**list;
+	int		i;
+	int		count;
+	char	**array;
 
-	wordcount = ft_wordcount((char *)s, c);
-	list = (char **)ft_calloc((wordcount + 1), sizeof(char *));
-	if (!list)
-		return (NULL);
-	i = 0;
-	while (i < wordcount)
+	i = -1;
+	count = count_word(str);
+	array = allocation(count + 1, sizeof(char *));
+	if (!array)
+		return (0);
+	while (++i < count)
 	{
-		s = ft_wordfind((char *)s, c);
-		list[i] = (char *)malloc(ft_wordlen((char *)s, c) + 1);
-		if (!list[i])
+		str = find_word(str);
+		array[i] = allocation(word_len(str), sizeof(char));
+		if (!array[i])
 		{
 			while (--i >= 0)
-				free(list[i]);
-			free(list);
-			return (NULL);
+				free(array[i]);
+			free(array);
+			return (0);
 		}
-		s = ft_wordassign(list[i], (char *)s, ft_wordlen((char *)s, c));
-		i++;
+		str = assign_word(array[i], str, word_len(str));
 	}
-	return (list);
+	return (array);
 }

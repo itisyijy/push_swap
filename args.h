@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:54:58 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/11 21:42:37 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:48:03 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ int		check_digit(char *str);
 int		ps_strncmp(const char *s1, const char *s2, unsigned long n);
 int		check_overlap(int argc, char *argv[]);
 long	ps_atoi(char *str);
-int		check_args(int argc, char *argv[]);
+void	*allocation(int count, int size);
+
+int		count_word(char *str);
+int		word_len(char *str);
+char	*find_word(char *str);
+char	*assign_word(char *dst, char *src, int len);
+char	**split_word(char *str);
+
+int		count_total_word(int argc, char *argv[]);
+char	**make_values(int argc, char *argv[]);
+int		count_values(char **values);
+char	**check_values(int argc, char *argv[]);
 
 #endif

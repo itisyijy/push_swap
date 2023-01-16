@@ -6,7 +6,7 @@
 /*   By: jeongyle <jeongyle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:03:19 by jeongyle          #+#    #+#             */
-/*   Updated: 2023/01/13 19:30:27 by jeongyle         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:39:42 by jeongyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,20 @@ int	ps_strncmp(const char *s1, const char *s2, unsigned long n)
 	return (*u1 - *u2);
 }
 
-int	check_overlap(int argc, char *argv[])
+int	check_overlap(int count, char **values)
 {
 	int		i;
 	int		j;
 	char	*tmp;
 
-	i = 1;
-	while (i + 1 < argc)
+	i = 0;
+	while (i + 1 < count)
 	{
-		tmp = argv[i];
+		tmp = values[i];
 		j = i + 1;
-		while (j < argc)
+		while (j < count)
 		{
-			if (ps_strncmp(tmp, argv[j], 11) == 0)
+			if (ps_strncmp(tmp, values[j], 11) == 0)
 				return (TRUE);
 			j++;
 		}
@@ -96,22 +96,16 @@ long	ps_atoi(char *str)
 	return (result * sign);
 }
 
-int	check_args(int argc, char *argv[])
+void	*allocation(int count, int size)
 {
 	int		i;
-	long	tmp;
+	void	*mem;
 
-	i = 1;
-	if (check_overlap(argc, argv) == TRUE)
-		return (FALSE);
-	while (i < argc)
-	{
-		if (check_digit(argv[i]) == FALSE)
-			return (FALSE);
-		tmp = ps_atoi(argv[i]);
-		if (tmp > INTMAX || tmp < INTMIN)
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
+	i = -1;
+	mem = malloc(count * size);
+	if (!mem)
+		return (0);
+	while (++i < count * size)
+		((unsigned char *)mem)[i] = 0;
+	return (mem);
 }
